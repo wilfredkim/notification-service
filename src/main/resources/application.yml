@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: notification-service
+  kafka:
+    bootstrap-servers: localhost:9200
+    consumer:
+      group-id: notificationService
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            type:
+              mappings: event:io.github.wilfred.notificationservice.order.OrderPlacedEvent
+
+
+
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 2525
+    username: d839197bb46a41
+    password: 779cfdf6248153
+
+server:
+  port: 1021
